@@ -17,6 +17,8 @@ class DragImageView: UIImageView {
     let W = UIScreen.main.bounds.width
     let H = UIScreen.main.bounds.height
     
+    var BDelegate:subviewDelegate?
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         startlocation = touches.first?.location(in: self)
@@ -36,14 +38,20 @@ class DragImageView: UIImageView {
         newCenter.x = min(self.superview!.bounds.width - halfx - ( W * 0.72), newCenter.x)
         
         let halfy = self.bounds.midY
-        newCenter.y = max(halfx + (H  *
+        newCenter.y = max(halfx + (H *
             0.23), newCenter.y)
         newCenter.y = min(self.superview!.bounds.height - halfy - (H * 0.23), newCenter.y)
         
         
         self.center = newCenter
+        
+        self.BDelegate?.updateLocation(dx: dx * 10, dy: dy * 10, center: self.center)
     
 
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.center = CGPoint (x: W * 0.075, y: H * 0.50)
     }
    
 
