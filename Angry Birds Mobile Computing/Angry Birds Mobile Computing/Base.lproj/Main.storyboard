@@ -16,17 +16,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="aim.png" translatesAutoresizingMaskIntoConstraints="NO" id="lwn-2U-cpm" customClass="DragImageView" customModule="Angry_Birds_Mobile_Computing" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="133" width="110" height="108"/>
+                                <rect key="frame" x="0.0" y="140" width="90" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="targetImageView" destination="lwn-2U-cpm" id="Iig-M6-y8F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="220.83958020989508" y="120.8"/>
+            <point key="canvasLocation" x="358.4707646176912" y="144.80000000000001"/>
         </scene>
     </scenes>
     <resources>
