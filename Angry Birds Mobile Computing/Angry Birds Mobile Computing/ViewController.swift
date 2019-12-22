@@ -19,6 +19,7 @@ class ViewController: UIViewController, subviewDelegate{
     var dynamicAnimator: UIDynamicAnimator!
     var ballCollisionBehavior: UICollisionBehavior!
     var dynamicItemBehavior: UIDynamicItemBehavior!
+    var gravityBehavior: UIGravityBehavior!
     
     let W = UIScreen.main.bounds.width
     let H = UIScreen.main.bounds.height
@@ -34,11 +35,30 @@ class ViewController: UIViewController, subviewDelegate{
         self.ballArray.append(ball)
        
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-        dynamicItemBehavior = UIDynamicItemBehavior(items: [ball])
+        dynamicItemBehavior = UIDynamicItemBehavior(items: ballArray)
         dynamicAnimator.addBehavior(dynamicItemBehavior)
         
         dynamicItemBehavior.addItem(ball)
         dynamicItemBehavior.addLinearVelocity(CGPoint(x: angleX * 2, y: angleY ), for: ball)
+        
+        //adding gravity
+        //gravityBehavior = UIGravityBehavior(items: [ball])
+       // dynamicAnimator.addBehavior(gravityBehavior)
+        
+        
+        // adding collision behaviour
+        
+        ballCollisionBehavior = UICollisionBehavior(items: ballArray)
+        ballCollisionBehavior.translatesReferenceBoundsIntoBoundary = true 
+        
+       // ballCollisionBehavior.addBoundary(withIdentifier: "Top_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 0.0), to: CGPoint(x: self.W * 1.0, y: self.H * 0.0))
+      //  ballCollisionBehavior.addBoundary(withIdentifier: "Left_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 0.0), to: CGPoint(x: self.W * 1.0, y: self.H * 1.0))
+       // ballCollisionBehavior.addBoundary(withIdentifier:  "Bottom_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 1.0), to: CGPoint(x: self.W * 1.0, y: self.H * 1.0 ))
+        
+        dynamicAnimator.addBehavior(ballCollisionBehavior)
+        
+        
+        
         
         
         
