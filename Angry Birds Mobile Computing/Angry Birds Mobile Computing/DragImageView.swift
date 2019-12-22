@@ -51,6 +51,7 @@ class DragImageView: UIImageView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.BDelegate?.ball()
         self.center = CGPoint (x: W * 0.075, y: H * 0.50)
     }
    

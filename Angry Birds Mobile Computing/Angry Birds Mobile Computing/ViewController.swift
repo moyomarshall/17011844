@@ -10,9 +10,40 @@ import UIKit
 
 protocol subviewDelegate {
     func updateLocation(dx: CGFloat, dy: CGFloat, center: CGPoint)
+    func ball()
+    
 }
 
 class ViewController: UIViewController, subviewDelegate{
+    
+    var dynamicAnimator: UIDynamicAnimator!
+    var ballCollisionBehavior: UICollisionBehavior!
+    var dynamicItemBehavior: UIDynamicItemBehavior!
+    
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
+ 
+    var ballArray:[UIImageView] = []
+    
+    func ball() {
+        let ball = UIImageView(image: nil)
+        ball.image = UIImage( named: "ball.png")
+        ball.frame = CGRect(x: W * 0.10, y: H * 0.5, width: W * 0.10, height: H * 0.17 )
+        self.view.addSubview(ball)
+        self.view.bringSubviewToFront(ball)
+        self.ballArray.append(ball)
+       
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [ball])
+        dynamicAnimator.addBehavior(dynamicItemBehavior)
+        
+        dynamicItemBehavior.addItem(ball)
+        dynamicItemBehavior.addLinearVelocity(CGPoint(x: angleX * 2, y: angleY ), for: ball)
+        
+        
+        
+    }
+    
     
     var angleX: CGFloat!
     var angleY: CGFloat!
