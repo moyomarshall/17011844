@@ -4,7 +4,7 @@
 //
 //  Created by mm17aft on 21/12/2019.
 //  Copyright © 2019 mm17aft. All rights reserved.
-//
+// Marshall Moyo
 
 import UIKit
 
@@ -49,11 +49,11 @@ class ViewController: UIViewController, subviewDelegate{
         // adding collision behaviour
         
         ballCollisionBehavior = UICollisionBehavior(items: ballArray)
-        ballCollisionBehavior.translatesReferenceBoundsIntoBoundary = true 
+       // ballCollisionBehavior.translatesReferenceBoundsIntoBoundary = true 
         
-       // ballCollisionBehavior.addBoundary(withIdentifier: "Top_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 0.0), to: CGPoint(x: self.W * 1.0, y: self.H * 0.0))
-      //  ballCollisionBehavior.addBoundary(withIdentifier: "Left_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 0.0), to: CGPoint(x: self.W * 1.0, y: self.H * 1.0))
-       // ballCollisionBehavior.addBoundary(withIdentifier:  "Bottom_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 1.0), to: CGPoint(x: self.W * 1.0, y: self.H * 1.0 ))
+       ballCollisionBehavior.addBoundary(withIdentifier: "Top_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 0.0), to: CGPoint(x: self.W * 1.0, y: self.H * 0.0))
+     ballCollisionBehavior.addBoundary(withIdentifier: "Left_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 0.0), to: CGPoint(x: self.W * 0.0, y: self.H * 1.0))
+       ballCollisionBehavior.addBoundary(withIdentifier:  "Bottom_Boundary" as NSCopying, from: CGPoint(x: self.W * 0.0, y: self.H * 1.0), to: CGPoint(x: self.W * 1.0, y: self.H * 1.0 ))
         
         dynamicAnimator.addBehavior(ballCollisionBehavior)
         
