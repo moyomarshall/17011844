@@ -67,7 +67,7 @@ class ViewController: UIViewController, subviewDelegate{
                         
                         if (dead != alive){
                             self.score += 1
-                            self.scoreLabel.text = String(self.score)
+                            self.scoreLabel.text = "Score: " + String(self.score)
                             
                         }
                         
@@ -111,38 +111,40 @@ var score = 0
         
         //let randomHieght = Int(self.H) / numberOfBirds *
             //Int.random(in: 0...numberOfBirds)
+       
         
         let birdView =  UIImageView (image: nil)
         birdView.image = self.birdImageArray.randomElement()
         birdView.frame = CGRect(x: W * 0.89, y: H * 0.0, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView)
-        self.view.bringSubviewToFront(birdView)
+        self.view.sendSubviewToBack(birdView)
         
         let birdView2 =  UIImageView (image: nil)
         birdView2.image = self.birdImageArray.randomElement()
         birdView2.frame = CGRect(x: W * 0.89, y: H * 0.2, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView2)
-        self.view.bringSubviewToFront(birdView2)
+        self.view.sendSubviewToBack(birdView2)
         
         let birdView3 =  UIImageView (image: nil)
         birdView3.image = self.birdImageArray.randomElement()
         birdView3.frame = CGRect(x: W * 0.89, y: H * 0.4, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView3)
-        self.view.bringSubviewToFront(birdView3)
+       self.view.sendSubviewToBack(birdView3)
         
         let birdView4 =  UIImageView (image: nil)
         birdView4.image = self.birdImageArray.randomElement()
         birdView4.frame = CGRect(x: W * 0.89, y: H * 0.6, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView4)
-        self.view.bringSubviewToFront(birdView4)
+       // self.view.bringSubviewToFront(birdView4)
         
         let birdView5 =  UIImageView (image: nil)
         birdView5.image = self.birdImageArray.randomElement()
         birdView5.frame = CGRect(x: W * 0.89, y: H * 0.8, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView5)
-        self.view.bringSubviewToFront(birdView5)
+        self.view.sendSubviewToBack(birdView5)
         
-     
+     self.view.bringSubviewToFront(self.replayView)
+        
         self.birdArray.append(birdView)
         self.birdArray.append(birdView2)
         self.birdArray.append(birdView3)
@@ -179,16 +181,17 @@ var score = 0
     @IBOutlet weak var scoreLabel: UILabel!
     
     
+    @IBOutlet weak var replayView: UIView!
     
     
     
-    func reply(){
+  //  func reply(){
 //        let when = DispatchTime.now() + 20
 //        DispatchQueue.main.asyncAfter(deadline: when){
 //            self.view.addSubview(replayFrame)
 //        }
         
-    }
+  //  }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,10 +201,16 @@ var score = 0
        // self.view.sendSubviewToBack(<#T##view: UIView##UIView#>)
        // self.view.addSubview(replayFrame)
         
-//        let when = DispatchTime.now() + 2
-//        DispatchQueue.main.asyncAfter(deadline: when){
-//            self.view.addSubview(replayFrame)
-//        }
+        self.replayView.isHidden
+        
+       let when = DispatchTime.now() + 2
+       DispatchQueue.main.asyncAfter(deadline: when){
+        
+        self.view.bringSubviewToFront(self.replayView)
+        self.view.addSubview(self.replayView)
+        
+         }
+        
         
        
         
