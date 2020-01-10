@@ -17,8 +17,7 @@ protocol subviewDelegate {
 
 class ViewController: UIViewController, subviewDelegate{
     
-    
-    
+
     var dynamicAnimator: UIDynamicAnimator!
     var ballCollisionBehavior: UICollisionBehavior!
     var dynamicItemBehavior: UIDynamicItemBehavior!
@@ -159,8 +158,10 @@ var score = 0
         
         Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true){_ in
             let numberOfBirds = Int.random(in: 0...4)
-            self.view.addSubview(self.birdArray[numberOfBirds])
             
+            if self.replayView.isHidden == true {
+            self.view.addSubview(self.birdArray[numberOfBirds])
+            }
         }
         
         }
@@ -189,9 +190,32 @@ var score = 0
     
     @IBOutlet weak var replayView: UIView!
     
-    @IBOutlet weak var replayButton: UIImageView!
     
-
+    
+    @IBAction func startbutton(){
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
+        
+     
+     /*
+    func musiK(){
+        
+        var soundtrack: AVAudioPlayer
+               let SoundTrackPath = Bundle.main.path(forResource: "soundtrack", ofType: nil)
+               let url = URL(fileURLWithPath: <#T##String#>)
+               
+                   do {
+                       
+                       soundtrack = try AVAudioPlayer(contentsOf: url )
+                       soundtrack.play()
+                       
+                   }catch{
+                       
+                       soundtrack.stop()
+        }
+    
+*/
 
   //  func reply(){
 //        let when = DispatchTime.now() + 20
@@ -201,35 +225,27 @@ var score = 0
         
   //  }
     
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       self.replayView.isHidden = true
         
-        var soundtrack: AVAudioPlayer
-        let SoundTrackPath = Bundle.main.path(forResource: "soundtrack", ofType: nil)
-        let url = URL(fileURLWithPath: "Angry\ Birds\ Mobile\ Computing/Angry\ Birds\ Mobile\ Computing/soundtrack.mp3 ")
-        
-            do {
-                
-                soundtrack = try AVAudioPlayer(contentsOf: url )
-                soundtrack.play()
-                
-            }catch{
-                
-
-            }
-            
-            
-        }
     
-    
-        self.replayView.isHidden = true
-        
        // let replayFrame = UIImageView(image: UIImage(named: "replay.png"))
       //  replayFrame.frame = UIScreen.main.bounds
        // self.view.sendSubviewToBack(<#T##view: UIView##UIView#>)
        // self.view.addSubview(replayFrame)
         
-   /*     self.replayButton.frame = CGRect(x: 10,y: self.H / 2, width: 80, height: 300)
+        
+        let subBackgroundView = UIImageView(image: UIImage(named: "subviewbackground.jpg"))
+        subBackgroundView.frame = UIScreen.main.bounds
+        self.view.sendSubviewToBack(subBackgroundView)
+        self.view.addSubview(subBackgroundView)
+        
+        
+       //self..frame = CGRect(x: self.H * 0.78 , y: self.W * 0.055, width: 80, height: 300)
         
     self.replayView.frame = CGRect(x: 0, y: 0, width: W , height: H )
     self.replayView.isHidden = true
@@ -242,14 +258,21 @@ var score = 0
         self.view.bringSubviewToFront(self.replayView)
        //self.view.bringSubviewToFront(self.replayButton)
         
-        //self.birdArray.removeAll()
+        self.birdArray.removeAll()
+        
+        self.scoreLabel.text = "Score: " + String(self.score)
+        self.replayView.addSubview(self.scoreLabel)
+        self.scoreLabel.frame = CGRect(x: self.H * 0.8 , y: self.W * 0.02, width: 80, height: 300)
         
         
-    
+        self.startbutton()
+        
+        
          }
     
-    */
-        
+
+       
+
       
        
         
@@ -268,9 +291,18 @@ var score = 0
         
         birds()
         
+        
+        
+      
+
+             }
+             
+             
+         }
+        
         // Do any additional setup after loading the view.
-    }
+    
 
 
-}
+
 

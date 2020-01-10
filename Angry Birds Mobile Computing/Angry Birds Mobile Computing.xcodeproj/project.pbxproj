@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		212DF0AF23C8BAC70027047A /* soundtrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 212DF0AE23C8BAC60027047A /* soundtrack.mp3 */; };
+		212DF0B123C8E4B30027047A /* subviewbackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 212DF0B023C8E4B30027047A /* subviewbackground.jpg */; };
 		21DCC32F23C77F160099EBBD /* aim.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DCC32E23C77F160099EBBD /* aim.png */; };
 		21DCC33123C77FCD0099EBBD /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DCC33023C77FCD0099EBBD /* ball.png */; };
 		21DCC33323C78F3C0099EBBD /* bird1.png in Resources */ = {isa = PBXBuildFile; fileRef = 21DCC33223C78F3C0099EBBD /* bird1.png */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		212DF0AE23C8BAC60027047A /* soundtrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundtrack.mp3; sourceTree = "<group>"; };
+		212DF0B023C8E4B30027047A /* subviewbackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = subviewbackground.jpg; path = images/subviewbackground.jpg; sourceTree = "<group>"; };
 		21DCC32E23C77F160099EBBD /* aim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = aim.png; path = images/aim.png; sourceTree = "<group>"; };
 		21DCC33023C77FCD0099EBBD /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = images/ball.png; sourceTree = "<group>"; };
 		21DCC33223C78F3C0099EBBD /* bird1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bird1.png; path = images/bird1.png; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		21EB84A523AE5AD700546076 /* Angry Birds Mobile Computing */ = {
 			isa = PBXGroup;
 			children = (
+				212DF0B023C8E4B30027047A /* subviewbackground.jpg */,
 				212DF0AE23C8BAC60027047A /* soundtrack.mp3 */,
 				21DCC35223C7D0230099EBBD /* background.jpg */,
 				21DCC33C23C795880099EBBD /* bird5.png */,
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21DCC34A23C795890099EBBD /* bird7.png in Resources */,
+				212DF0B123C8E4B30027047A /* subviewbackground.jpg in Resources */,
 				21DCC35023C795890099EBBD /* bird8.jpg in Resources */,
 				21DCC33723C78F4E0099EBBD /* bird3.png in Resources */,
 				21DCC34E23C795890099EBBD /* bird9.png in Resources */,
