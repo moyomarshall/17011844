@@ -7,6 +7,7 @@
 // Marshall Moyo
 
 import UIKit
+import AVFoundation
 
 protocol subviewDelegate {
     func updateLocation(dx: CGFloat, dy: CGFloat, center: CGPoint)
@@ -15,6 +16,8 @@ protocol subviewDelegate {
 }
 
 class ViewController: UIViewController, subviewDelegate{
+    
+    
     
     var dynamicAnimator: UIDynamicAnimator!
     var ballCollisionBehavior: UICollisionBehavior!
@@ -117,19 +120,19 @@ var score = 0
         birdView.image = self.birdImageArray.randomElement()
         birdView.frame = CGRect(x: W * 0.89, y: H * 0.0, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView)
-        self.view.sendSubviewToBack(birdView)
+       //self.view.sendSubviewToBack(birdView)
         
         let birdView2 =  UIImageView (image: nil)
         birdView2.image = self.birdImageArray.randomElement()
         birdView2.frame = CGRect(x: W * 0.89, y: H * 0.2, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView2)
-        self.view.sendSubviewToBack(birdView2)
+       // self.view.sendSubviewToBack(birdView2)
         
         let birdView3 =  UIImageView (image: nil)
         birdView3.image = self.birdImageArray.randomElement()
         birdView3.frame = CGRect(x: W * 0.89, y: H * 0.4, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView3)
-       self.view.sendSubviewToBack(birdView3)
+       //self.view.sendSubviewToBack(birdView3)
         
         let birdView4 =  UIImageView (image: nil)
         birdView4.image = self.birdImageArray.randomElement()
@@ -141,7 +144,7 @@ var score = 0
         birdView5.image = self.birdImageArray.randomElement()
         birdView5.frame = CGRect(x: W * 0.89, y: H * 0.8, width: CGFloat(bird_size), height: CGFloat(bird_size))
         self.view.addSubview(birdView5)
-        self.view.sendSubviewToBack(birdView5)
+        //self.view.sendSubviewToBack(birdView5)
         
      self.view.bringSubviewToFront(self.replayView)
         
@@ -150,6 +153,9 @@ var score = 0
         self.birdArray.append(birdView3)
         self.birdArray.append(birdView4)
         self.birdArray.append(birdView5)
+        
+        
+        
         
         Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true){_ in
             let numberOfBirds = Int.random(in: 0...4)
@@ -183,8 +189,10 @@ var score = 0
     
     @IBOutlet weak var replayView: UIView!
     
+    @IBOutlet weak var replayButton: UIImageView!
     
-    
+
+
   //  func reply(){
 //        let when = DispatchTime.now() + 20
 //        DispatchQueue.main.asyncAfter(deadline: when){
@@ -196,22 +204,53 @@ var score = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var soundtrack: AVAudioPlayer
+        let SoundTrackPath = Bundle.main.path(forResource: "soundtrack", ofType: nil)
+        let url = URL(fileURLWithPath: "Angry\ Birds\ Mobile\ Computing/Angry\ Birds\ Mobile\ Computing/soundtrack.mp3 ")
+        
+            do {
+                
+                soundtrack = try AVAudioPlayer(contentsOf: url )
+                soundtrack.play()
+                
+            }catch{
+                
+
+            }
+            
+            
+        }
+    
+    
+        self.replayView.isHidden = true
+        
        // let replayFrame = UIImageView(image: UIImage(named: "replay.png"))
       //  replayFrame.frame = UIScreen.main.bounds
        // self.view.sendSubviewToBack(<#T##view: UIView##UIView#>)
        // self.view.addSubview(replayFrame)
         
-        self.replayView.isHidden
+   /*     self.replayButton.frame = CGRect(x: 10,y: self.H / 2, width: 80, height: 300)
         
-       let when = DispatchTime.now() + 2
+    self.replayView.frame = CGRect(x: 0, y: 0, width: W , height: H )
+    self.replayView.isHidden = true
+        
+       let when = DispatchTime.now() + 3
        DispatchQueue.main.asyncAfter(deadline: when){
-        
-        self.view.bringSubviewToFront(self.replayView)
         self.view.addSubview(self.replayView)
         
+        self.replayView.isHidden = false
+        self.view.bringSubviewToFront(self.replayView)
+       //self.view.bringSubviewToFront(self.replayButton)
+        
+        //self.birdArray.removeAll()
+        
+        
+    
          }
+    
+    */
         
-        
+      
        
         
         
