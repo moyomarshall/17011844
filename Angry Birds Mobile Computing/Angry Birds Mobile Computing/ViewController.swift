@@ -190,33 +190,59 @@ var score = 0
     
     @IBOutlet weak var replayView: UIView!
     
+    @IBOutlet weak var nextLeve: UILabel!
     
+    var currentLevel:Int = 0
+        
+        
+
     
-    @IBAction func startbutton(){
-        _ = self.navigationController?.popViewController(animated: true)
+    @IBAction func replayButton(_ sender: Any) {
+        
+    currentLevel = currentLevel + 1
+        
+        if(currentLevel == 0){
+        
+        let cv = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainView") as! ViewController
+        self.present(cv, animated: false, completion: nil)
+        //super.viewDidLoad()
+        //super.viewWillAppear(true)
+        }
+        
+        if (currentLevel == 1){
+            
+            let cv = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainView") as! ViewController
+            self.present(cv, animated: false, completion: nil)
+            
+            
+            let square = UIImageView(image: UIImage(named: "square.png"))
+            square.frame = CGRect(x: self.H * 0.8 , y: self.W * 0.02, width: 80, height: 300)
+            square.frame = UIScreen.main.bounds
+            self.view.sendSubviewToBack(square)
+            self.view.addSubview(square)
+            
+        }
+         
+        print(currentLevel)
     }
     
         
      
      /*
     func musiK(){
-        
         var soundtrack: AVAudioPlayer
                let SoundTrackPath = Bundle.main.path(forResource: "soundtrack", ofType: nil)
                let url = URL(fileURLWithPath: <#T##String#>)
                
                    do {
-                       
                        soundtrack = try AVAudioPlayer(contentsOf: url )
                        soundtrack.play()
                        
                    }catch{
-                       
                        soundtrack.stop()
         }
     
 */
-
   //  func reply(){
 //        let when = DispatchTime.now() + 20
 //        DispatchQueue.main.asyncAfter(deadline: when){
@@ -224,15 +250,16 @@ var score = 0
 //        }
         
   //  }
-    
-    
-   
-    
     override func viewDidLoad() {
+        
+        
+        
+        
         super.viewDidLoad()
        self.replayView.isHidden = true
         
-    
+        
+
        // let replayFrame = UIImageView(image: UIImage(named: "replay.png"))
       //  replayFrame.frame = UIScreen.main.bounds
        // self.view.sendSubviewToBack(<#T##view: UIView##UIView#>)
@@ -264,8 +291,6 @@ var score = 0
         self.replayView.addSubview(self.scoreLabel)
         self.scoreLabel.frame = CGRect(x: self.H * 0.8 , y: self.W * 0.02, width: 80, height: 300)
         
-        
-        self.startbutton()
         
         
          }
