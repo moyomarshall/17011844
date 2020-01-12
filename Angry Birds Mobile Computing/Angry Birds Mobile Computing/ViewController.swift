@@ -118,31 +118,31 @@ var score = 0
         let birdView =  UIImageView (image: nil)
         birdView.image = self.birdImageArray.randomElement()
         birdView.frame = CGRect(x: W * 0.89, y: H * 0.0, width: CGFloat(bird_size), height: CGFloat(bird_size))
-        self.view.addSubview(birdView)
+        //self.view.addSubview(birdView)
        //self.view.sendSubviewToBack(birdView)
         
         let birdView2 =  UIImageView (image: nil)
         birdView2.image = self.birdImageArray.randomElement()
         birdView2.frame = CGRect(x: W * 0.89, y: H * 0.2, width: CGFloat(bird_size), height: CGFloat(bird_size))
-        self.view.addSubview(birdView2)
+        //self.view.addSubview(birdView2)
        // self.view.sendSubviewToBack(birdView2)
         
         let birdView3 =  UIImageView (image: nil)
         birdView3.image = self.birdImageArray.randomElement()
         birdView3.frame = CGRect(x: W * 0.89, y: H * 0.4, width: CGFloat(bird_size), height: CGFloat(bird_size))
-        self.view.addSubview(birdView3)
+        //self.view.addSubview(birdView3)
        //self.view.sendSubviewToBack(birdView3)
         
         let birdView4 =  UIImageView (image: nil)
         birdView4.image = self.birdImageArray.randomElement()
         birdView4.frame = CGRect(x: W * 0.89, y: H * 0.6, width: CGFloat(bird_size), height: CGFloat(bird_size))
-        self.view.addSubview(birdView4)
+        //self.view.addSubview(birdView4)
        // self.view.bringSubviewToFront(birdView4)
         
         let birdView5 =  UIImageView (image: nil)
         birdView5.image = self.birdImageArray.randomElement()
         birdView5.frame = CGRect(x: W * 0.89, y: H * 0.8, width: CGFloat(bird_size), height: CGFloat(bird_size))
-        self.view.addSubview(birdView5)
+        //self.view.addSubview(birdView5)
         //self.view.sendSubviewToBack(birdView5)
         
      self.view.bringSubviewToFront(self.replayView)
@@ -156,7 +156,7 @@ var score = 0
         
         
         
-        Timer.scheduledTimer(withTimeInterval: 0.75, repeats: true){_ in
+        Timer.scheduledTimer(withTimeInterval: 0.50, repeats: true){_ in
             let numberOfBirds = Int.random(in: 0...4)
             
             if self.replayView.isHidden == true {
@@ -198,51 +198,32 @@ var score = 0
 
     
     @IBAction func replayButton(_ sender: Any) {
-        
-    currentLevel = currentLevel + 1
-        
-        if(currentLevel == 0){
+    
         
         let cv = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainView") as! ViewController
         self.present(cv, animated: false, completion: nil)
         //super.viewDidLoad()
         //super.viewWillAppear(true)
         }
+   
+  /*  func musiK(){
         
-        if (currentLevel == 1){
-            
-            let cv = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "mainView") as! ViewController
-            self.present(cv, animated: false, completion: nil)
-            
-            
-            let square = UIImageView(image: UIImage(named: "square.png"))
-            square.frame = CGRect(x: self.H * 0.8 , y: self.W * 0.02, width: 80, height: 300)
-            square.frame = UIScreen.main.bounds
-            self.view.sendSubviewToBack(square)
-            self.view.addSubview(square)
-            
-        }
-         
-        print(currentLevel)
-    }
     
-        
-     
-     /*
-    func musiK(){
         var soundtrack: AVAudioPlayer
-               let SoundTrackPath = Bundle.main.path(forResource: "soundtrack", ofType: nil)
-               let url = URL(fileURLWithPath: <#T##String#>)
+        let SoundTrackPath = Bundle.main.path(forResource: "soundtrack.mp3", ofType: nil)!
+               let url = URL(fileURLWithPath: SoundTrackPath)
                
                    do {
-                       soundtrack = try AVAudioPlayer(contentsOf: url )
-                       soundtrack.play()
-                       
+                    let rep = 1
+                    repeat {soundtrack = try AVAudioPlayer(contentsOf: url )
+                        soundtrack.play()}while( rep == 1)
                    }catch{
-                       soundtrack.stop()
+                       
         }
     
-*/
+    }
+    
+ */
   //  func reply(){
 //        let when = DispatchTime.now() + 20
 //        DispatchQueue.main.asyncAfter(deadline: when){
@@ -250,16 +231,17 @@ var score = 0
 //        }
         
   //  }
+        
     override func viewDidLoad() {
         
         
         
         
         super.viewDidLoad()
+       // musiK()
        self.replayView.isHidden = true
         
-        
-
+      
        // let replayFrame = UIImageView(image: UIImage(named: "replay.png"))
       //  replayFrame.frame = UIScreen.main.bounds
        // self.view.sendSubviewToBack(<#T##view: UIView##UIView#>)
@@ -268,16 +250,16 @@ var score = 0
         
         let subBackgroundView = UIImageView(image: UIImage(named: "subviewbackground.jpg"))
         subBackgroundView.frame = UIScreen.main.bounds
-        self.view.sendSubviewToBack(subBackgroundView)
         self.view.addSubview(subBackgroundView)
+        self.view.sendSubviewToBack(subBackgroundView)
         
         
        //self..frame = CGRect(x: self.H * 0.78 , y: self.W * 0.055, width: 80, height: 300)
         
-    self.replayView.frame = CGRect(x: 0, y: 0, width: W , height: H )
+  //  self.replayView.frame = CGRect(x: 0, y: 0, width: W , height: H )
     self.replayView.isHidden = true
         
-       let when = DispatchTime.now() + 3
+       let when = DispatchTime.now() + 2
        DispatchQueue.main.asyncAfter(deadline: when){
         self.view.addSubview(self.replayView)
         
@@ -289,18 +271,17 @@ var score = 0
         
         self.scoreLabel.text = "Score: " + String(self.score)
         self.replayView.addSubview(self.scoreLabel)
-        self.scoreLabel.frame = CGRect(x: self.H * 0.8 , y: self.W * 0.02, width: 80, height: 300)
         
+        
+        
+        self.scoreLabel.frame = CGRect(x: self.view.frame.width / 1.25 , y: self.view.frame.height / 20, width: 80, height: 300)
+
         
         
          }
     
 
        
-
-      
-       
-        
         
         let backgroundView = UIImageView(image: UIImage(named: "background.jpg"))
         backgroundView.frame = UIScreen.main.bounds

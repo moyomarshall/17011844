@@ -27,11 +27,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TgI-b1-YrE">
-                                <rect key="frame" x="275" y="27" width="360" height="221"/>
+                                <rect key="frame" x="-233" y="-76" width="1131" height="530"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ag-xZ-GG4">
-                                        <rect key="frame" x="121" y="79" width="118" height="63"/>
+                                        <rect key="frame" x="507" y="223" width="118" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="replay.png"/>
                                         <connections>
@@ -41,19 +41,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="level" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPh-bD-Pk3">
-                                <rect key="frame" x="136" y="7" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="nextLeve" destination="jPh-bD-Pk3" id="3es-9N-8U1"/>
                         <outlet property="replayView" destination="TgI-b1-YrE" id="SST-eK-8QD"/>
                         <outlet property="scoreLabel" destination="5sW-2s-QB5" id="DAd-Ud-oVA"/>
                         <outlet property="targetImageView" destination="zuQ-Xh-6Rb" id="qaY-9B-sqP"/>
@@ -61,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247.82608695652175" y="-58.399999999999999"/>
+            <point key="canvasLocation" x="-168.6656671664168" y="-44"/>
         </scene>
     </scenes>
     <resources>
