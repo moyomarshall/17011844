@@ -27,7 +27,7 @@ class ViewController: UIViewController, subviewDelegate{
     let H = UIScreen.main.bounds.height
  
     var ballArray:[UIImageView] = []
-    
+    // ball object
     func ball() {
         let ballView = UIImageView(image: nil)
         ballView.image = UIImage( named: "ball.png")
@@ -60,7 +60,7 @@ class ViewController: UIViewController, subviewDelegate{
         
         ballCollisionBehavior.action = {
             
-            for randomball in self.ballArray{
+            for randomball in self.ballArray{   //wheb the ball intersect swith the bird 1 shoulsd be added on the scorelabel
                 for randomBird in self.birdArray {
                     if randomball.frame.intersects(randomBird.frame){
                         let dead = self.view.subviews.count
@@ -87,7 +87,7 @@ class ViewController: UIViewController, subviewDelegate{
     
 var score = 0
 
- var birdImageArray: [UIImage] = [
+ var birdImageArray: [UIImage] = [ // array with all the bird images
         UIImage( named: "bird1.png")!,
         UIImage( named: "bird2.png")!,
         UIImage( named: "bird3.png")!,
@@ -106,7 +106,7 @@ var score = 0
 
     
     var birdArray: Array<UIImageView> = []
-
+//bird object
     func birds(){
         let numberOfBirds = 5
         let bird_size = Int(self.H)/numberOfBirds-1
@@ -183,7 +183,7 @@ var score = 0
     
     
     
-    @IBOutlet weak var targetImageView: DragImageView!
+    @IBOutlet weak var targetImageView: DragImageView! //shooter object
     
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -206,24 +206,24 @@ var score = 0
         //super.viewWillAppear(true)
         }
    
-  /*  func musiK(){
+  func musiK(){
         
     
-        var soundtrack: AVAudioPlayer
-        let SoundTrackPath = Bundle.main.path(forResource: "soundtrack.mp3", ofType: nil)!
+        var soundtrack: AVAudioPlayer?
+    let SoundTrackPath = Bundle.main.path(forResource: "soundtrack.mp3", ofType: nil)!
                let url = URL(fileURLWithPath: SoundTrackPath)
                
-                   do {
-                    let rep = 1
-                    repeat {soundtrack = try AVAudioPlayer(contentsOf: url )
-                        soundtrack.play()}while( rep == 1)
+    do {
+                   
+                    soundtrack = try AVAudioPlayer(contentsOf: url )
+                    soundtrack?.play()
                    }catch{
-                       
+                     //
         }
     
     }
     
- */
+
   //  func reply(){
 //        let when = DispatchTime.now() + 20
 //        DispatchQueue.main.asyncAfter(deadline: when){
@@ -234,11 +234,11 @@ var score = 0
         
     override func viewDidLoad() {
         
-        
+        self.musiK()
         
         
         super.viewDidLoad()
-       // musiK()
+  
        self.replayView.isHidden = true
         
       
@@ -259,22 +259,24 @@ var score = 0
   //  self.replayView.frame = CGRect(x: 0, y: 0, width: W , height: H )
     self.replayView.isHidden = true
         
-       let when = DispatchTime.now() + 2
+       let when = DispatchTime.now() + 20
        DispatchQueue.main.asyncAfter(deadline: when){
+
+        self.birdArray.removeAll()
+        self.ballArray.removeAll()
         self.view.addSubview(self.replayView)
         
         self.replayView.isHidden = false
         self.view.bringSubviewToFront(self.replayView)
        //self.view.bringSubviewToFront(self.replayButton)
         
-        self.birdArray.removeAll()
-        
+       
         self.scoreLabel.text = "Score: " + String(self.score)
         self.replayView.addSubview(self.scoreLabel)
         
         
         
-        self.scoreLabel.frame = CGRect(x: self.view.frame.width / 1.25 , y: self.view.frame.height / 20, width: 80, height: 300)
+        self.scoreLabel.frame = CGRect(x: self.view.frame.width / 1.25, y: self.view.frame.height / 10, width: 80, height: 300)
 
         
         

@@ -27,11 +27,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TgI-b1-YrE">
-                                <rect key="frame" x="-233" y="-76" width="1131" height="530"/>
+                                <rect key="frame" x="-232" y="-103" width="1131" height="530"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ag-xZ-GG4">
-                                        <rect key="frame" x="507" y="223" width="118" height="63"/>
+                                        <rect key="frame" x="506" y="306" width="118" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="replay.png"/>
                                         <connections>

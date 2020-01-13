@@ -37,6 +37,7 @@
 		21EB84BE23AE5AD800546076 /* Angry_Birds_Mobile_ComputingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB84BD23AE5AD800546076 /* Angry_Birds_Mobile_ComputingTests.swift */; };
 		21EB84C923AE5AD800546076 /* Angry_Birds_Mobile_ComputingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB84C823AE5AD800546076 /* Angry_Birds_Mobile_ComputingUITests.swift */; };
 		21EB84DB23AE5C4300546076 /* DragImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EB84DA23AE5C4300546076 /* DragImageView.swift */; };
+		21FBA14323CBE62500F7B6E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21FBA14223CBE62500F7B6E8 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		21EB84C823AE5AD800546076 /* Angry_Birds_Mobile_ComputingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Angry_Birds_Mobile_ComputingUITests.swift; sourceTree = "<group>"; };
 		21EB84CA23AE5AD800546076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21EB84DA23AE5C4300546076 /* DragImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragImageView.swift; sourceTree = "<group>"; };
+		21FBA14223CBE62500F7B6E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21FBA14323CBE62500F7B6E8 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +130,7 @@
 				21EB84BC23AE5AD800546076 /* Angry Birds Mobile ComputingTests */,
 				21EB84C723AE5AD800546076 /* Angry Birds Mobile ComputingUITests */,
 				21EB84A423AE5AD700546076 /* Products */,
+				21FBA14123CBE62500F7B6E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +196,14 @@
 				21EB84CA23AE5AD800546076 /* Info.plist */,
 			);
 			path = "Angry Birds Mobile ComputingUITests";
+			sourceTree = "<group>";
+		};
+		21FBA14123CBE62500F7B6E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21FBA14223CBE62500F7B6E8 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
