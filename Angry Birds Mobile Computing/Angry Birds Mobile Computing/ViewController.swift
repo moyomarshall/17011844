@@ -206,19 +206,21 @@ var score = 0
         //super.viewWillAppear(true)
         }
    
+     var soundtrack: AVAudioPlayer?
+    
   func musiK(){
         
     
-        var soundtrack: AVAudioPlayer?
-    let SoundTrackPath = Bundle.main.path(forResource: "soundtrack.mp3", ofType: nil)!
-               let url = URL(fileURLWithPath: SoundTrackPath)
+       
+    let SoundTrackPath = Bundle.main.path(forResource: "soundtrack", ofType: "mp3")!
+              // let url = URL(fileURLWithPath: SoundTrackPath)
                
     do {
                    
-                    soundtrack = try AVAudioPlayer(contentsOf: url )
-                    soundtrack?.play()
+        try  self.soundtrack  = AVAudioPlayer(contentsOf: URL (fileURLWithPath: SoundTrackPath) )
+        self.soundtrack?.play()
                    }catch{
-                     //
+                     print(error)
         }
     
     }
@@ -234,7 +236,7 @@ var score = 0
         
     override func viewDidLoad() {
         
-        self.musiK()
+        musiK()
         
         
         super.viewDidLoad()
@@ -276,7 +278,7 @@ var score = 0
         
         
         
-        self.scoreLabel.frame = CGRect(x: self.view.frame.width / 1.25, y: self.view.frame.height / 10, width: 80, height: 300)
+        self.scoreLabel.frame = CGRect(x: self.view.frame.width / 1.3, y: self.view.frame.height / 3, width: 300, height: 300)
 
         
         
