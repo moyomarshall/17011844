@@ -114,6 +114,11 @@ var score = 0
         //let randomHieght = Int(self.H) / numberOfBirds *
             //Int.random(in: 0...numberOfBirds)
        
+        //Create a new UIImageViewfrom scratch
+        //Assign an image to the image view
+        //Assign the size and position of the image view
+        //Add the image view to the main view
+        
         
         let birdView =  UIImageView (image: nil)
         birdView.image = self.birdImageArray.randomElement()
