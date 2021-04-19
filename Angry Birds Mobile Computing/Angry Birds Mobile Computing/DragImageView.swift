@@ -33,7 +33,7 @@ class DragImageView: UIImageView {
         let dy = currentLocation!.y - startlocation!.y
         var newCenter = CGPoint(x: self.center.x + dx, y: self.center.y + dy)
         
-        
+        //constrain the movement to the phone screen bounds
         let halfx = self.bounds.midX
         newCenter.x = max(halfx, newCenter.x)
         newCenter.x = min(self.superview!.bounds.width - halfx - ( W * 0.72), newCenter.x)
