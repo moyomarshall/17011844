@@ -21,11 +21,12 @@ class DragImageView: UIImageView {
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        startlocation = touches.first?.location(in: self)
+        startlocation = touches.first?.location(in: self) //When touch begins, retrieve the starting point
         
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //When touch moves, work out the differences between x and y axis, and assign the new centre
         let currentLocation = touches.first?.location(in: self)
         
         let dx = currentLocation!.x - startlocation!.x
